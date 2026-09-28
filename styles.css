@@ -50,3 +50,23 @@
     letter-spacing: .12em;
   }
 }
+@media (max-width: 800px) {
+  .drawer-panel {
+    width: 100%;
+    max-width: 100%;
+    padding: 28px 20px;
+  }
+
+  .drawer-panel h2 {
+    font-size: 32px;
+  }
+
+  .cart-row {
+    gap: 12px;
+    font-size: 13px;
+  }
+
+  .cart-row strong {
+    white-space: nowrap;
+  }
+}
