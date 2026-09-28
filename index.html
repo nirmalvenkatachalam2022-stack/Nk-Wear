@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NK WEAR — Define Your Style</title>
+  <meta name="description" content="NK WEAR — modern everyday apparel designed to define your style.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="NK Wear home">
+      <span class="brand-mark">NK</span><span class="brand-name">WEAR</span>
+    </a>
+    <nav>
+      <a href="#shop">Shop</a>
+      <div class="nav-dropdown">
+        <button class="nav-drop-btn" type="button" aria-expanded="false">Ladies <span>⌄</span></button>
+        <div class="nav-menu">
+          <a href="#ladies">Ladies</a>
+          <a href="#leggings">Leggings</a>
+          <a href="#ladies-coming-soon">Coming Soon</a>
+        </div>
+      </div>
+      <a href="#about">About</a><a href="#contact">Contact</a>
+    </nav>
+    <button class="cart-button" id="cartButton" aria-label="Open cart">Cart <span id="cartCount">0</span></button>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">NK WEAR / NEW DROP</p>
+        <h1>DEFINE<br><span>YOUR STYLE.</span></h1>
+        <p class="hero-text">Clean silhouettes. Everyday comfort. A modern wardrobe built around your vibe.</p>
+        <a class="button dark" href="#shop">Shop the collection</a>
+      </div>
+      <div class="hero-art hero-photo-grid">
+        <img src="assets/nk-white.png" alt="NK Wear white T-shirt">
+        <img src="assets/nk-black.png" alt="NK Wear black T-shirt">
+      </div>
+    </section>
+
+    <section class="ticker"><span>NK WEAR</span><span>DEFINE YOUR STYLE</span><span>EVERYDAY ESSENTIALS</span><span>NK WEAR</span></section>
+
+    <section class="shop section" id="shop">
+      <div class="section-head"><div><p class="eyebrow">COLLECTION 01</p><h2>Built for everyday.</h2></div><p>Limited first-drop styles. Add to cart and review your order before checkout.</p></div>
+      <div class="products" id="products"></div>
+    </section>
+
+    <section class="ladies-coming section" id="ladies-coming-soon">
+      <div class="section-head"><div><p class="eyebrow">LADIES / NEW CATEGORY</p><h2>Women’s leggings.<br><span>Coming soon.</span></h2></div><p>Comfort-focused styles in multiple colours, with the NK WEAR label. The collection will be available soon.</p></div>
+      <div class="coming-image-wrap" id="leggings"><img src="assets/ladies-leggings-coming-soon.png" alt="NK Wear women's leggings coming soon"></div>
+    </section>
+
+    <section class="story section" id="about">
+      <div class="story-image"><img src="assets/nk-sand.png" alt="NK Wear sand T-shirt"></div>
+      <div class="story-copy"><p class="eyebrow">THE NK WEAR IDEA</p><h2>Less noise.<br>More style.</h2><p>NK WEAR is built around a simple idea: clothing should feel effortless, look intentional and work every day.</p><div class="features"><div><b>01</b><span>Clean design</span></div><div><b>02</b><span>Comfort first</span></div><div><b>03</b><span>Made to repeat</span></div></div></div>
+    </section>
+
+    <section class="newsletter section" id="contact">
+      <div><p class="eyebrow">STAY IN THE LOOP</p><h2>New drops. No noise.</h2></div>
+      <form id="newsletterForm"><input type="email" id="email" placeholder="Your email address" required><button class="button dark" type="submit">Join NK Wear</button></form>
+    </section>
+  </main>
+
+  <footer><div><strong>NK WEAR</strong><p>DEFINE YOUR STYLE</p></div><div><p>© 2026 NK Wear. All rights reserved.</p></div></footer>
+
+  <div class="drawer" id="drawer" aria-hidden="true">
+    <div class="drawer-panel"><button class="close" id="closeCart">×</button><p class="eyebrow">YOUR BAG</p><h2>Your cart</h2><div id="cartItems"></div><div class="cart-total"><span>Total</span><strong id="cartTotal">₹0</strong></div><button class="button dark full" id="checkoutButton">Place order</button><p class="note">Demo checkout: connect your WhatsApp number/payment gateway before launch.</p></div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
