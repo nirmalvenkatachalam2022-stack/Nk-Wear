@@ -17,3 +17,20 @@ const drawer=document.getElementById('drawer');function openDrawer(){drawer.clas
 document.getElementById('checkoutButton').onclick=()=>{if(!cart.length){alert('Your cart is empty.');return}const text='NK WEAR Order%0A%0A'+cart.map(p=>`${p.name} - ${money(p.price)}`).join('%0A')+`%0A%0ATotal: ${money(cart.reduce((s,p)=>s+p.price,0))}%0A%0APlease replace the WhatsApp number in script.js before launch.`;window.open('https://wa.me/?text='+text,'_blank')};
 document.getElementById('newsletterForm').addEventListener('submit',e=>{e.preventDefault();alert('Thanks for joining NK WEAR. Connect this form to your email platform before launch.');e.target.reset()});
 renderCart();
+const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+
+mobileMenuBtn.addEventListener('click', () => {
+  const isOpen = mobileMenu.classList.toggle('open');
+
+  mobileMenuBtn.textContent = isOpen ? '×' : '☰';
+  mobileMenuBtn.setAttribute('aria-expanded', String(isOpen));
+});
+
+mobileMenu.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    mobileMenu.classList.remove('open');
+    mobileMenuBtn.textContent = '☰';
+    mobileMenuBtn.setAttribute('aria-expanded', 'false');
+  });
+});
