@@ -14,7 +14,18 @@ productRoot.addEventListener('click',e=>{if(e.target.matches('.add')){const p=pr
 function renderCart(){document.getElementById('cartCount').textContent=cart.length;const root=document.getElementById('cartItems');root.innerHTML=cart.length?cart.map((p,i)=>`<div class="cart-row"><span>${p.name}</span><strong>${money(p.price)} <button class="remove" data-i="${i}">Remove</button></strong></div>`).join(''):'<p class="note">Your cart is empty.</p>';document.getElementById('cartTotal').textContent=money(cart.reduce((s,p)=>s+p.price,0))}
 document.getElementById('cartItems').addEventListener('click',e=>{if(e.target.matches('.remove')){cart.splice(Number(e.target.dataset.i),1);renderCart()}});
 const drawer=document.getElementById('drawer');function openDrawer(){drawer.classList.add('open');drawer.setAttribute('aria-hidden','false')}function closeDrawer(){drawer.classList.remove('open');drawer.setAttribute('aria-hidden','true')}document.getElementById('cartButton').onclick=openDrawer;document.getElementById('closeCart').onclick=closeDrawer;drawer.addEventListener('click',e=>{if(e.target===drawer)closeDrawer()});
-document.getElementById('checkoutButton').onclick=()=>{if(!cart.length){alert('Your cart is empty.');return}const text='NK WEAR Order%0A%0A'+cart.map(p=>`${p.name} - ${money(p.price)}`).join('%0A')+`%0A%0ATotal: ${money(cart.reduce((s,p)=>s+p.price,0))}%0A%0APlease replace the WhatsApp number in script.js before launch.`;window.open('https://wa.me/?text='+text,'_blank')};
+document.getElementById('checkoutButton').onclick=()=>{
+  if(!cart.length){
+    alert('Your cart is empty.');
+    return;
+  }
+
+  const text='NK WEAR Order%0A%0A'+
+    cart.map(p=>`${p.name} - ${money(p.price)}`).join('%0A')+
+    `%0ATotal: ${money(cart.reduce((s,p)=>s+p.price,0))}`;
+
+  window.open('https://wa.me/916380111309?text='+text,'_blank');
+};
 document.getElementById('newsletterForm').addEventListener('submit',e=>{e.preventDefault();alert('Thanks for joining NK WEAR. Connect this form to your email platform before launch.');e.target.reset()});
 renderCart();
 const mobileMenuBtn = document.getElementById('mobileMenuBtn');
