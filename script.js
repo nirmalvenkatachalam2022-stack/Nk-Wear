@@ -1,10 +1,10 @@
 const products=[
- {id:1,name:'NK Essential — White',desc:'Clean everyday fit · 200 GSM',price:599,style:'',label:'NK',image:'assets/nk-white.png'},
- {id:2,name:'NK Essential — Black',desc:'Classic street fit · 200 GSM',price:599,style:'dark',label:'NK',image:'assets/nk-black.png'},
- {id:3,name:'NK Essential — Brown',desc:'Earth-tone everyday fit · 200 GSM',price:699,style:'brown',label:'NK',image:'assets/nk-brown.png'},
- {id:4,name:'NK Essential — Grey',desc:'Minimal premium fit · 220 GSM',price:699,style:'grey',label:'NK',image:'assets/nk-grey.png'},
- {id:5,name:'NK Essential — Forest Green',desc:'Deep green premium fit · 220 GSM',price:699,style:'forest',label:'NK',image:'assets/nk-forest.png'},
- {id:6,name:'NK Essential — Sand',desc:'Soft neutral everyday fit · 220 GSM',price:699,style:'sand',label:'NK',image:'assets/nk-sand.png'}
+ {id:1,name:'NK Essential — White',desc:'Clean everyday fit · 200 GSM',price:599,style:'',label:'NK',image:'nk-white.png'},
+ {id:2,name:'NK Essential — Black',desc:'Classic street fit · 200 GSM',price:599,style:'dark',label:'NK',image:'nk-black.png'},
+ {id:3,name:'NK Essential — Brown',desc:'Earth-tone everyday fit · 200 GSM',price:699,style:'brown',label:'NK',image:'nk-brown.png'},
+ {id:4,name:'NK Essential — Grey',desc:'Minimal premium fit · 220 GSM',price:699,style:'grey',label:'NK',image:'nk-grey.png'},
+ {id:5,name:'NK Essential — Forest Green',desc:'Deep green premium fit · 220 GSM',price:699,style:'forest',label:'NK',image:'nk-forest.png'},
+ {id:6,name:'NK Essential — Sand',desc:'Soft neutral everyday fit · 220 GSM',price:699,style:'sand',label:'NK',image:'nk-sand.png'}
 ];
 let cart=[];
 const productRoot=document.getElementById('products');
