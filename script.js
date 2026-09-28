@@ -23,8 +23,21 @@ document.getElementById('checkoutButton').onclick=()=>{
   const text='NK WEAR Order%0A%0A'+
     cart.map(p=>`${p.name} - ${money(p.price)}`).join('%0A')+
     `%0ATotal: ${money(cart.reduce((s,p)=>s+p.price,0))}`;
+document.getElementById('checkoutButton').onclick = () => {
+  if (!cart.length) {
+    alert('Your cart is empty.');
+    return;
+  }
 
-  window.open('https://wa.me/916380111309?text='+text,'_blank');
+  const message =
+    `NK WEAR ORDER\n\n` +
+    cart.map(p => `${p.name} - ${money(p.price)}`).join('\n') +
+    `\n\nTotal: ${money(cart.reduce((s, p) => s + p.price, 0))}`;
+
+  const whatsappUrl =
+    'https://wa.me/916380111309?text=' + encodeURIComponent(message);
+
+  window.location.href = whatsappUrl;
 };
 document.getElementById('newsletterForm').addEventListener('submit',e=>{e.preventDefault();alert('Thanks for joining NK WEAR. Connect this form to your email platform before launch.');e.target.reset()});
 renderCart();
