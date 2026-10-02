@@ -1,58 +1,10 @@
 const products = [
-  {
-    id: 1,
-    name: 'NK Essential — White',
-    desc: 'Clean everyday fit · 200 GSM',
-    price: 599,
-    style: '',
-    label: 'NK',
-    image: 'nk-white.png'
-  },
-  {
-    id: 2,
-    name: 'NK Essential — Black',
-    desc: 'Classic street fit · 200 GSM',
-    price: 599,
-    style: 'dark',
-    label: 'NK',
-    image: 'nk-black.png'
-  },
-  {
-    id: 3,
-    name: 'NK Essential — Brown',
-    desc: 'Earth-tone everyday fit · 200 GSM',
-    price: 699,
-    style: 'brown',
-    label: 'NK',
-    image: 'nk-brown.png'
-  },
-  {
-    id: 4,
-    name: 'NK Essential — Grey',
-    desc: 'Minimal premium fit · 220 GSM',
-    price: 699,
-    style: 'grey',
-    label: 'NK',
-    image: 'nk-grey.png'
-  },
-  {
-    id: 5,
-    name: 'NK Essential — Forest Green',
-    desc: 'Deep green premium fit · 220 GSM',
-    price: 699,
-    style: 'forest',
-    label: 'NK',
-    image: 'nk-forest.png'
-  },
-  {
-    id: 6,
-    name: 'NK Essential — Sand',
-    desc: 'Soft neutral everyday fit · 220 GSM',
-    price: 699,
-    style: 'sand',
-    label: 'NK',
-    image: 'nk-sand.png'
-  }
+  {id:1,name:'NK Essential — White',desc:'Clean everyday fit · 200 GSM',price:599,image:'nk-white.png'},
+  {id:2,name:'NK Essential — Black',desc:'Classic street fit · 200 GSM',price:599,image:'nk-black.png'},
+  {id:3,name:'NK Essential — Brown',desc:'Earth-tone everyday fit · 200 GSM',price:699,image:'nk-brown.png'},
+  {id:4,name:'NK Essential — Grey',desc:'Minimal premium fit · 220 GSM',price:699,image:'nk-grey.png'},
+  {id:5,name:'NK Essential — Forest Green',desc:'Deep green premium fit · 220 GSM',price:699,image:'nk-forest.png'},
+  {id:6,name:'NK Essential — Sand',desc:'Soft neutral everyday fit · 220 GSM',price:699,image:'nk-sand.png'}
 ];
 
 let cart = [];
@@ -66,35 +18,31 @@ function money(n) {
 /* PRODUCTS */
 productRoot.innerHTML = products.map(p => `
   <article class="product">
-    <div class="product-visual ${p.style}">
+    <div class="product-visual">
       <img src="${p.image}" alt="${p.name}">
     </div>
-
     <div class="product-info">
       <div>
         <h3>${p.name}</h3>
         <p>${p.desc}</p>
       </div>
-      <strong class="product-price">${money(p.price)}</strong>
+      <strong>${money(p.price)}</strong>
     </div>
-
-    <button class="add" data-id="${p.id}">
-      Add to cart
-    </button>
+    <button class="add" data-id="${p.id}">Add to cart</button>
   </article>
 `).join('');
 
 /* ADD TO CART */
 productRoot.addEventListener('click', e => {
-  if (e.target.matches('.add')) {
-    const product = products.find(
-      p => p.id === Number(e.target.dataset.id)
-    );
+  if (!e.target.matches('.add')) return;
 
-    cart.push(product);
-    renderCart();
-    openDrawer();
-  }
+  const product = products.find(
+    p => p.id === Number(e.target.dataset.id)
+  );
+
+  cart.push(product);
+  renderCart();
+  openDrawer();
 });
 
 /* CART */
@@ -122,10 +70,10 @@ function renderCart() {
 }
 
 document.getElementById('cartItems').addEventListener('click', e => {
-  if (e.target.matches('.remove')) {
-    cart.splice(Number(e.target.dataset.i), 1);
-    renderCart();
-  }
+  if (!e.target.matches('.remove')) return;
+
+  cart.splice(Number(e.target.dataset.i), 1);
+  renderCart();
 });
 
 /* CART DRAWER */
@@ -145,13 +93,12 @@ document.getElementById('cartButton').onclick = openDrawer;
 document.getElementById('closeCart').onclick = closeDrawer;
 
 drawer.addEventListener('click', e => {
-  if (e.target === drawer) {
-    closeDrawer();
-  }
+  if (e.target === drawer) closeDrawer();
 });
 
-/* WHATSAPP CHECKOUT */
+/* WHATSAPP */
 document.getElementById('checkoutButton').onclick = () => {
+
   if (!cart.length) {
     alert('Your cart is empty.');
     return;
@@ -164,11 +111,9 @@ document.getElementById('checkoutButton').onclick = () => {
       cart.reduce((sum, p) => sum + p.price, 0)
     )}`;
 
-  const whatsappUrl =
+  window.location.href =
     'https://wa.me/916380111309?text=' +
     encodeURIComponent(message);
-
-  window.location.href = whatsappUrl;
 };
 
 /* NEWSLETTER */
@@ -176,11 +121,7 @@ document.getElementById('newsletterForm').addEventListener(
   'submit',
   e => {
     e.preventDefault();
-
-    alert(
-      'Thanks for joining NK WEAR. Connect this form to your email platform before launch.'
-    );
-
+    alert('Thanks for joining NK WEAR.');
     e.target.reset();
   }
 );
@@ -193,6 +134,7 @@ const mobileMenu =
   document.getElementById('mobileMenu');
 
 mobileMenuBtn.addEventListener('click', () => {
+
   const isOpen =
     mobileMenu.classList.toggle('open');
 
@@ -206,7 +148,9 @@ mobileMenuBtn.addEventListener('click', () => {
 });
 
 mobileMenu.querySelectorAll('a').forEach(link => {
+
   link.addEventListener('click', () => {
+
     mobileMenu.classList.remove('open');
 
     mobileMenuBtn.textContent = '☰';
@@ -215,8 +159,10 @@ mobileMenu.querySelectorAll('a').forEach(link => {
       'aria-expanded',
       'false'
     );
+
   });
+
 });
 
-/* INITIAL CART */
+/* START */
 renderCart();
